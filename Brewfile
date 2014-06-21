@@ -1,6 +1,8 @@
 # Install command-line tools using Homebrew
 # Usage: `brew bundle Brewfile`
 
+tap homebrew/dupes
+
 # Make sure we’re using the latest Homebrew
 update
 
@@ -32,18 +34,23 @@ install narwhal
 # Install more recent versions of some OS X tools
 install vim --override-system-vi
 install homebrew/dupes/grep
-install homebrew/dupes/screen
+#install homebrew/dupes/screen # currently failing with "autoreconf: failed to run aclocal: Permission denied"
 install homebrew/php/php55 --with-gmp
 
 # Install other useful binaries
 install ack
+install awscli
 install bfg
+install boot2docker
+install docker
 #install exiv2
 install foremost
 install git
 install hashpump
+install htop-osx
 install imagemagick --with-webp
 install lynx
+install nano
 install nmap
 install node # This installs `npm` too using the recommended installation method
 install p7zip
@@ -52,8 +59,10 @@ install pv
 install rename
 install rhino
 install sqlmap
+install ssh-copy-id
 install tree
 install ucspi-tcp # `tcpserver` et al.
+install vagrant-completion
 install webkit2png
 install xpdf
 install zopfli
