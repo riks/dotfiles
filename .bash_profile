@@ -40,12 +40,10 @@ fi;
 # Add tab completion for SSH hostnames based on ~/.ssh/config, ignoring wildcards
 [ -e "$HOME/.ssh/config" ] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2 | tr ' ' '\n')" scp sftp ssh;
 
-# Add tab completion for `defaults read|write NSGlobalDomain`
-# You could just use `-g` instead, but I like being explicit
-complete -W "NSGlobalDomain" defaults;
+# Add AWS CLI completion.
+complete -C '/usr/local/bin/aws_completer' aws
 
-# Add `killall` tab completion for common apps
-complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes SystemUIServer Terminal Twitter" killall;
-
-# Add tab completion for AWS CLI
-complete -C aws_completer aws
+# Remember last working directory.
+PROMPT_COMMAND+='; printf %s "$PWD" > ~/.storepwd'
+# Goto last working directory.
+cd "$(<~/.storepwd)"
