@@ -32,6 +32,7 @@ install homebrew/dupes/grep
 
 # Install other useful binaries
 install ack
+install bash-git-prompt
 install git
 install htop-osx
 install imagemagick --with-webp
